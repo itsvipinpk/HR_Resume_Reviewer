@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const retrievalController_1 = require("../controllers/retrievalController");
+const router = (0, express_1.Router)();
+router.get("/search/readiness", retrievalController_1.retrievalController.getReadiness);
+router.post("/embeddings", retrievalController_1.retrievalController.generateEmbedding);
+router.post("/search/bm25", retrievalController_1.retrievalController.searchBM25);
+router.post("/search/vector", retrievalController_1.retrievalController.searchVector);
+router.post("/search/hybrid", retrievalController_1.retrievalController.searchHybrid);
+router.post("/search/rerank", retrievalController_1.retrievalController.searchRerank);
+router.post("/search/summarize", retrievalController_1.retrievalController.searchSummarize);
+router.post("/search", retrievalController_1.retrievalController.search);
+exports.default = router;
